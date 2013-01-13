@@ -1,8 +1,8 @@
 class truth::enforcer {
 
 	if has_role("led_fun_and_games") {
-		notice("I play with leds, they're fun!")
+		include led_fun_and_games
 	} else {
-		notice("no leds for me!")
+		include led_fun_and_games::remove
 	}
 }
