@@ -17,10 +17,13 @@ class hello_world {
 		mode => 655
 	}
 	
+	file { "/var/run/helloworld":
+		ensure => directory 
+	}
+	
 	service { "helloworld":
-		hasstatus => false,
 		ensure => running,
-		require => [File["/etc/init.d/helloworld"], File["/opt/helloworld/helloworld-1.0-standalone.jar"]]
+		require => [File["/etc/init.d/helloworld"], File["/opt/helloworld/helloworld-1.0-standalone.jar"], File["/var/run/helloworld"]]
 	}
 }
 
@@ -28,7 +31,6 @@ class hello_world {
 class hello_world::remove {
 
 	service { "helloworld":
-		hasstatus => false,
 		ensure => stopped
 	}
 	
