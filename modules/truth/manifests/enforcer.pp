@@ -5,7 +5,4 @@ class truth::enforcer {
 	} else {
 		notice("no leds for me!")
 	}
-	
-	notice("ummm... does this work?")
-
 }
