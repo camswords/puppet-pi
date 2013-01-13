@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# helloworld
+
+case $1 in 
+start)
+	java -jar /opt/helloworld/helloworld-1.0-standalone.jar
+	;;
+restart|reload|force-reload)
+	$0 stop
+	$0 start
+	;;
+*)
+	echo "Sorry, $1 is not supported"

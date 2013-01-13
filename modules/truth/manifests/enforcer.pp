@@ -1,8 +1,10 @@
 class truth::enforcer {
 
-	if has_role("led_fun_and_games") {
-		include led_fun_and_games
+	include sun_java_6
+
+	if has_role("hello_world") {
+		include hello_world
 	} else {
-		include led_fun_and_games::remove
+		include hello_world::remove
 	}
 }
