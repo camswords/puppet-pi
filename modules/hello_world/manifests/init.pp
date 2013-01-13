@@ -5,6 +5,10 @@ class hello_world {
 		ensure => directory 
 	}
 	
+	file { "/var/log/helloworld":
+		ensure => directory
+	}
+	
 	file { "/opt/helloworld/helloworld-1.0-standalone.jar":
 		ensure => present,
 		source => "puppet:///modules/hello_world/opt/helloworld/helloworld-1.0-standalone.jar",
@@ -23,7 +27,8 @@ class hello_world {
 	
 	service { "helloworld":
 		ensure => running,
-		require => [File["/etc/init.d/helloworld"], File["/opt/helloworld/helloworld-1.0-standalone.jar"], File["/var/run/helloworld"]]
+		require => [File["/etc/init.d/helloworld"], File["/opt/helloworld/helloworld-1.0-standalone.jar"], 
+					File["/var/run/helloworld"], File["/var/log/helloworld"]]
 	}
 }
 
