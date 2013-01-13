@@ -11,7 +11,7 @@ check_running_process_matches_recorded_pid() {
 	local pidfile="$1"
 	local pid
 	
-	pid = `cat "$pidfile" 2>/dev/null`
+	pid=`cat "$pidfile" 2>/dev/null`
 	if [ "$pid" = '' ];then
 		# could not read the pid, for whatever reason.
 		return 1
