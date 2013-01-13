@@ -18,15 +18,9 @@ class hello_world (
 		require => File["/opt/$program_name"]
 	}
 	
-	file { "/tmp/$program_name":
-		ensure => present,
-		content => template("hello_world/etc/init.d/control-script.erb"),
-		mode => 655
-	}
-	
 	file { "/etc/init.d/$program_name":
 		ensure => present,
-		source => "puppet:///modules/hello_world/etc/init.d/$program_name",
+		content => template("hello_world/etc/init.d/control-script.erb"),
 		mode => 655
 	}
 	
