@@ -7,7 +7,7 @@ class hello_world {
 	
 	file { "/opt/helloworld/helloworld-1.0-standalone.jar":
 		ensure => present,
-		puppet:///modules/helloworld/opt/helloworld/helloworld-1.0-standalone.jar,
+		source => puppet:///modules/helloworld/opt/helloworld/helloworld-1.0-standalone.jar,
 		require => File["/opt/helloworld"]
 	}
 	
