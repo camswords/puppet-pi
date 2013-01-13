@@ -20,7 +20,7 @@ class hello_world (
 	
 	file { "/tmp/$program_name":
 		ensure => present,
-		source => template("hello_world/etc/init.d/control-script.erb"),
+		content => template("hello_world/etc/init.d/control-script.erb"),
 		mode => 655
 	}
 	
