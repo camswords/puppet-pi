@@ -36,7 +36,9 @@ class hello_world (
 }
 
 
-class hello_world::remove {
+class hello_world::remove (
+	$program_name = "helloworld"
+) {
 
 	service { "$program_name":
 		ensure => stopped
