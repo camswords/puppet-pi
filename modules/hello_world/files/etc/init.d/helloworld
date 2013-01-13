@@ -5,6 +5,7 @@
 case $1 in 
 start)
 	java -jar /opt/helloworld/helloworld-1.0-standalone.jar
+	exit $?
 	;;
 restart|reload|force-reload)
 	$0 stop
