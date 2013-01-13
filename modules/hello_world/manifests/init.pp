@@ -14,7 +14,7 @@ class hello_world (
 	
 	file { "/opt/$program_name/$jar_file":
 		ensure => present,
-		source => "puppet:///modules/hello_world/opt/$program_name/jar_file",
+		source => "puppet:///modules/hello_world/opt/$program_name/$jar_file",
 		require => File["/opt/$program_name"]
 	}
 	
