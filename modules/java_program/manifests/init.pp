@@ -36,13 +36,20 @@ class java_program ($jar_file, $program_name) {
 class java_program::remove ($program_name) {
 
 	service { "$program_name":
-		ensure => stopped
+		ensure => stopped,
+		hasstatus => false,
+		status => "ls /etc/init.d/$program_name > /dev/null 2>&1 && /etc/init.d/$program_name status > /dev/null 2>&1"
 	}
 	
 	file { "/opt/$program_name":
 		ensure => absent,
 		force => true,
 		require => Service["$program_name"]
+	}
+	
+	file { "/var/log/$program_name":
+		ensure => absent,
+		force => true
 	}
 	
 	file { "/etc/init.d/$program_name":
