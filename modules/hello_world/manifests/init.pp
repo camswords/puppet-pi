@@ -7,13 +7,13 @@ class hello_world {
 	
 	file { "/opt/helloworld/helloworld-1.0-standalone.jar":
 		ensure => present,
-		source => "puppet:///modules/helloworld/opt/helloworld/helloworld-1.0-standalone.jar",
+		source => "puppet:///modules/hello_world/opt/helloworld/helloworld-1.0-standalone.jar",
 		require => File["/opt/helloworld"]
 	}
 	
 	file { "/etc/init.d/helloworld":
 		ensure => present,
-		source => "puppet:///modules/helloworld/etc/init.d/helloworld",
+		source => "puppet:///modules/hello_world/etc/init.d/helloworld",
 		mode => 655
 	}
 	
