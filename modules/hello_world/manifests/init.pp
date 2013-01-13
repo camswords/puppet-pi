@@ -1,7 +1,7 @@
 
 class hello_world (
-	$jar_file => "helloworld-1.0-standalone.jar",
-	$program_name => "helloworld"
+	$jar_file = "helloworld-1.0-standalone.jar",
+	$program_name = "helloworld"
 ) {
 
 	file { "/opt/$program_name": 
