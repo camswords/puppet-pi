@@ -1,6 +1,6 @@
 class truth::enforcer {
 
-	include sun_java_6
+	include java
 
 	if has_role("hello_world") {
 		include hello_world
