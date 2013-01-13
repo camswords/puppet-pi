@@ -1,3 +1,3 @@
-import "templates"
-import "nodes"
-
+node default {
+	include truth::enforcer
+}
