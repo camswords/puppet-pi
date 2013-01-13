@@ -35,10 +35,9 @@ class java_program ($jar_file, $program_name) {
 
 class java_program::remove ($program_name) {
 
+	# unfortunately, and error will occur when attempting to stop the service when it doesn't exist. I don't know how to fix this yet.
 	service { "$program_name":
 		ensure => stopped,
-		enable => false,
-		status => "ls /etc/init.d/$program_name > /dev/null 2>&1 && /etc/init.d/$program_name status > /dev/null 2>&1"
 	}
 	
 	file { "/opt/$program_name":
