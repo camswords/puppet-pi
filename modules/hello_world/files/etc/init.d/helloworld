@@ -44,7 +44,7 @@ kill_process_with_recorded_pid() {
 	local pidfile="$1"
 	local pid
 	
-	pid = `cat "$pidfile" 2>/dev/null`
+	pid=`cat "$pidfile" 2>/dev/null`
 	if [ "$pid" = '' ];then
 		# if we can't read the pid file, we assume the process is not running
 		return 0
