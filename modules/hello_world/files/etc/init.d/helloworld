@@ -12,7 +12,7 @@ restart|reload|force-reload)
 	$0 start
 	;;
 *)
-	echo "Sorry, $1 is not supported"
+	echo "Usage: $0 (start|restart)"
 	exit 1
 	;;
 esac
