@@ -1,52 +1,55 @@
 
-class hello_world {
+class hello_world (
+	$jar_file => "helloworld-1.0-standalone.jar",
+	$program_name => "helloworld"
+) {
 
-	file { "/opt/helloworld": 
+	file { "/opt/$program_name": 
 		ensure => directory 
 	}
 	
-	file { "/var/log/helloworld":
+	file { "/var/log/$program_name":
 		ensure => directory
 	}
 	
-	file { "/opt/helloworld/helloworld-1.0-standalone.jar":
+	file { "/opt/$program_name/$jar_file":
 		ensure => present,
-		source => "puppet:///modules/hello_world/opt/helloworld/helloworld-1.0-standalone.jar",
-		require => File["/opt/helloworld"]
+		source => "puppet:///modules/hello_world/opt/$program_name/jar_file",
+		require => File["/opt/$program_name"]
 	}
 	
-	file { "/etc/init.d/helloworld":
+	file { "/etc/init.d/$program_name":
 		ensure => present,
-		source => "puppet:///modules/hello_world/etc/init.d/helloworld",
+		source => "puppet:///modules/hello_world/etc/init.d/$program_name",
 		mode => 655
 	}
 	
-	file { "/var/run/helloworld":
+	file { "/var/run/$program_name":
 		ensure => directory 
 	}
 	
-	service { "helloworld":
+	service { "$program_name":
 		ensure => running,
-		require => [File["/etc/init.d/helloworld"], File["/opt/helloworld/helloworld-1.0-standalone.jar"], 
-					File["/var/run/helloworld"], File["/var/log/helloworld"]]
+		require => [File["/etc/init.d/$program_name"], File["/opt/$program_name/$jar_file"], 
+					File["/var/run/$program_name"], File["/var/log/$program_name"]]
 	}
 }
 
 
 class hello_world::remove {
 
-	service { "helloworld":
+	service { "$program_name":
 		ensure => stopped
 	}
 	
-	file { "/opt/helloworld":
+	file { "/opt/$program_name":
 		ensure => absent,
 		force => true,
-		require => Service["helloworld"]
+		require => Service["$program_name"]
 	}
 	
-	file { "/etc/init.d/helloworld":
+	file { "/etc/init.d/$program_name":
 		ensure => absent,
-		require => Service["helloworld"]
+		require => Service["$program_name"]
 	}
 }
