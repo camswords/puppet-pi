@@ -13,7 +13,7 @@ class hello_world {
 	
 	file { "/etc/init.d/helloworld":
 		ensure => present,
-		puppet:///modules/helloworld/etc/init.d/helloworld,
+		source => puppet:///modules/helloworld/etc/init.d/helloworld,
 		mode => 655
 	}
 	
