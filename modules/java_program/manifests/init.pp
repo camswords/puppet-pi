@@ -37,7 +37,7 @@ class java_program::remove ($program_name) {
 
 	service { "$program_name":
 		ensure => stopped,
-		hasstatus => false,
+		enable => false,
 		status => "ls /etc/init.d/$program_name > /dev/null 2>&1 && /etc/init.d/$program_name status > /dev/null 2>&1"
 	}
 	
@@ -49,7 +49,8 @@ class java_program::remove ($program_name) {
 	
 	file { "/var/log/$program_name":
 		ensure => absent,
-		force => true
+		force => true,
+		require => Service["$program_name"]
 	}
 	
 	file { "/etc/init.d/$program_name":
