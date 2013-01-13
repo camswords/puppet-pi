@@ -20,7 +20,7 @@ class hello_world {
 	service { "helloworld":
 		hasstatus => false,
 		ensure => running,
-		require => File["/etc/init.d/helloworld"], File["/opt/helloworld/helloworld-1.0-standalone.jar"]
+		require => [File["/etc/init.d/helloworld"], File["/opt/helloworld/helloworld-1.0-standalone.jar"]]
 	}
 }
 
