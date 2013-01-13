@@ -12,3 +12,8 @@ restart|reload|force-reload)
 	;;
 *)
 	echo "Sorry, $1 is not supported"
+	exit 1
+	;;
+esac
+
+exit 0
