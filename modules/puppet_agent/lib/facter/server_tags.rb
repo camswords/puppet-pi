@@ -1,7 +1,12 @@
-require 'facter'
 
-Facter.add(:server_tags) do
+Facter.add(:kernell) do
   setcode do
-    Facter::Util::Resolution.exec("cat /etc/puppet/server_tags 2>/dev/null")
+    require 'facter/util/config'
+
+    if Facter::Util::Config.is_windows?
+      'windows'
+    else
+      Facter::Util::Resolution.exec("uname -s")
+    end
   end
 end
