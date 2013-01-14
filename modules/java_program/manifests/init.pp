@@ -37,7 +37,7 @@ class java_program::remove ($program_name) {
 
 	# this is a hack to ensure that the service will stop. This doesn't require the service to be there to pass.
 	exec { "stop_program":
-		cmd => "kill -9 `cat /var/run/$program_name/$program_name.pid 2>/dev/null` 2>/dev/null; echo 'this echo is just to make sure it returns exit code 0' >/dev/null"
+		command => "kill -9 `cat /var/run/$program_name/$program_name.pid 2>/dev/null` 2>/dev/null; echo 'this echo is just to make sure it returns exit code 0' >/dev/null"
 	}
 	
 	file { "/opt/$program_name":
