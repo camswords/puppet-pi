@@ -7,4 +7,8 @@ class truth::enforcer {
 	} else {
 		class { 'java_program::remove': program_name => "helloworld" }
 	}
+	
+	if has_role("puppet_agent") {
+		include puppet_agent
+	}
 }
