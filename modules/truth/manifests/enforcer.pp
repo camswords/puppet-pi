@@ -1,5 +1,7 @@
 class truth::enforcer {
 
+	notify { "Determined roles for client $fqdn: $server_tags" }
+
 	include java
 
 	if has_role("helloworld") {
