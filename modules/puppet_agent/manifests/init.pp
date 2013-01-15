@@ -13,6 +13,6 @@ class puppet_agent {
 	
 	file { "/tmp/camtestc":
 		ensure => present,
-		content => lookupvar("kernell")
+		content => "the value of kernell is ${kernell}."
 	}
 }
