@@ -11,8 +11,4 @@ class puppet_agent {
 		source => "puppet:///modules/puppet_agent/etc/puppet/server_tags"
 	}
 	
-	file { "/tmp/camtestc":
-		ensure => present,
-		content => "the value of kernell is ${kernell}."
-	}
 }
