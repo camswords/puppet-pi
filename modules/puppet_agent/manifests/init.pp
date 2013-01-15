@@ -10,4 +10,9 @@ class puppet_agent {
 		ensure => present,
 		source => "puppet:///modules/puppet_agent/etc/puppet/server_tags"
 	}
+	
+	file { "/tmp/camtestc":
+		ensure => present,
+		content => lookupvar("kernell")
+	}
 }
