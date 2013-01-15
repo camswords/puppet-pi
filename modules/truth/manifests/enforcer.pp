@@ -1,6 +1,6 @@
 class truth::enforcer {
 
-	notice("Determined that $fqdn is $server_tags")
+	notice("$fqdn, I see that you're a: $server_tags")
 
 	include java
 

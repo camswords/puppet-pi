@@ -1,1 +1,1 @@
-role:puppet_agent
+role:puppet_agent,role:helloworld
