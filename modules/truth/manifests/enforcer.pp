@@ -1,6 +1,6 @@
 class truth::enforcer {
 
-	notify { "Determined roles for client $fqdn: $server_tags": }
+	notice("Determined that $fqdn is $server_tags")
 
 	include java
 
