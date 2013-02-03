@@ -1,0 +1,17 @@
+
+
+Setting up a puppet master
+
+- Create a new virtual machine. Use the image ubuntu-10.04.1-desktop-i386.iso.
+
+- Add the Puppet Repository to the packages list
+	- run "wget http://apt.puppetlabs.com/puppetlabs-release-lucid.deb"
+	- run "sudo dpkg -i puppetlabs-release-lucid.deb"
+	- run "sudo apt-get update"
+	
+- Install the puppet master
+	- run "sudo apt-get install puppetmaster"
+	This will install puppet 3.0.2.
+
+
+
