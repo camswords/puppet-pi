@@ -1,5 +1,4 @@
 
-
 Setting up a puppet master
 
 - Create a new virtual machine. Use the image ubuntu-10.04.1-desktop-i386.iso.
@@ -10,8 +9,31 @@ Setting up a puppet master
 	- run "sudo apt-get update"
 	
 - Install the puppet master
-	- run "sudo apt-get install puppetmaster"
-	This will install puppet 3.0.2.
-
-
-
+	- run "sudo apt-get install puppet-common=2.7.18-1puppetlabs1"
+	- run "sudo apt-get install puppetmaster-common=2.7.18-1puppetlabs1"
+	- run "sudo apt-get install puppetmaster=2.7.18-1puppetlabs1"
+	This will install puppet 2.7.18 and ruby 1.8.7.
+	
+- Install git
+	- run "sudo apt-get install git-core"
+	
+- Install the configuration/puppet modules
+	- run "sudo service puppetmaster stop"
+	- run "cd /etc"
+	- run "sudo mv puppet puppet_old"
+	- run "sudo git clone git://github.com/camswords/puppet-pi.git puppet"
+	- run "sudo service puppetmaster start"
+	
+- Install Switcheroo
+	- run "cd /opt"
+	- run "git clone git://github.com/camswords/switcheroo.git switcheroo"
+	- run "cd switcheroo"
+	- run "sudo apt-get install rubygems"
+	- run "sudo gem install rubygems-update"
+	- run "sudo /var/lib/gems/1.8/bin/update_rubygems"
+	- run "sudo gem install bundler"
+	- run "sudo apt-get install ruby1.8-dev libsqlite3-ruby libsqlite3-dev g++"
+	- run "sudo bundle install"
+	
+- Run Switcheroo
+	- In /opt/switcheroo, run "sudo rails s -e production 2>&1 | sudo tee --append /var/log/switcheroo.log > /dev/null &"
