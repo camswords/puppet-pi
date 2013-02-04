@@ -19,9 +19,12 @@ module Puppet::Parser::Functions
     end
     role = args[0]
     
-    return false unless lookupvar("server_tags").is_a? String
+    server_tags = lookupvar("server_tags")
+    function_notice("Searching for #{role} in #{server_tags}")
     
-    roles = lookupvar("server_tags").split(",").grep(/^role:/)
+    return false if !server_tags.is_a?(String)
+    
+    roles = server_tags.split(",").grep(/^role:/)
     roletag_re = /^role:#{role}(?:=.+)?$/
     has_role = (roles.grep(roletag_re).length > 0)
     return has_role
