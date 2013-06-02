@@ -41,8 +41,8 @@ mkdir /var/log/switcheroo
 chown -R switcheroo:switcheroo /var/log/switcheroo
 
 # create the init.d script
-cp /opt/switcheroo/scripts/etc/init.d/switcheroo /etc/init.d/switcheroo
+cp /opt/switcheroo/script/etc/init.d/switcheroo /etc/init.d/switcheroo
 chmod 755 /etc/init.d/switcheroo
 
 # start switcheroo
-service start switcheroo
+/etc/init.d/switcheroo start
