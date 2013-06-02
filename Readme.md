@@ -33,7 +33,11 @@ The puppet master knows all of the programs that can be installed / run given a 
 At the moment the puppet master is designed to be run on Ubuntu (I run it in a virtual machine). Ideally, this should also be run on a Raspberry Pi.
 
 #### Install ####
-Create a new virtual machine running Ubuntu. Note that this has only been tested using ubuntu-10.04.1-desktop-i386. Once loaded, run
+Create a new virtual machine running Ubuntu. Note that this has only been tested using ubuntu-10.04.1-desktop-i386. Once loaded, in a terminal run
+
+sudo apt-get install curl
+
+and then
 
 sudo bash < <(curl https://raw.github.com/camswords/puppet-pi/master/scripts/puppetmaster/setup_all.sh)
 
