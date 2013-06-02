@@ -19,6 +19,8 @@ service puppetmaster stop
 rm -rf /etc/puppet
 git clone git://github.com/camswords/puppet-pi.git /etc/puppet
 chown -R puppet:puppet /etc/puppet
+chmod 664 /etc/puppet/modules/puppet_agent/files/etc/puppet/server_tags
+chmod 664 /etc/puppet/modules/puppet_agent/files/etc/puppet/enforcer.pp
 service puppetmaster start
 
 # install switcheroo
