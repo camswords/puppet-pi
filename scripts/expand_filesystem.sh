@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 do_expand_rootfs() {
 
@@ -77,7 +77,7 @@ case "$1" in
 esac
 EOF
   chmod +x /etc/init.d/resize2fs_once &&
-  update-rc.d resize2fs_once defaults &&
+  update-rc.d resize2fs_once defaults
 }
 
 do_expand_rootfs
