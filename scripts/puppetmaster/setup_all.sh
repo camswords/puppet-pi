@@ -18,8 +18,8 @@ apt-get -y install git-core
 service puppetmaster stop
 rm -rf /etc/puppet
 git clone git://github.com/camswords/puppet-pi.git /etc/puppet
+chown -R puppet:puppet /etc/puppet
 service puppetmaster start
-
 
 # install switcheroo
 git clone git://github.com/camswords/switcheroo.git /opt/switcheroo
@@ -28,5 +28,21 @@ gem install rubygems-update
 /var/lib/gems/1.8/bin/update_rubygems
 gem install bundler
 apt-get -y install ruby1.8-dev libsqlite3-ruby libsqlite3-dev g++
+cd /opt/switcheroo
 bundle install
 
+# create a switcheroo user
+useradd switcheroo
+usermod -G puppet switcheroo
+chown -R switcheroo:switcheroo /opt/switcheroo
+
+# setup run / log directories
+mkdir /var/log/switcheroo
+chown -R switcheroo:switcheroo /var/log/switcheroo
+
+# create the init.d script
+cp /opt/switcheroo/scripts/etc/init.d/switcheroo /etc/init.d/switcheroo
+chmod 755 /etc/init.d/switcheroo
+
+# start switcheroo
+service start switcheroo
