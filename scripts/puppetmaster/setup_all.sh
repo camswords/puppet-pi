@@ -19,7 +19,7 @@ service puppetmaster stop
 rm -rf /etc/puppet
 git clone git://github.com/camswords/puppet-pi.git /etc/puppet
 chown -R puppet:puppet /etc/puppet
-chmod 664 /etc/puppet/modules/java_program/files/opt
+chmod 775 /etc/puppet/modules/java_program/files/opt
 chmod 664 /etc/puppet/modules/puppet_agent/files/etc/puppet/server_tags
 chmod 664 /etc/puppet/modules/truth/manifests/enforcer.pp
 service puppetmaster start
