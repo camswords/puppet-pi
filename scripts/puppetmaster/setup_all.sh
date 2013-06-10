@@ -39,9 +39,8 @@ useradd switcheroo
 usermod -G puppet switcheroo
 chown -R switcheroo:switcheroo /opt/switcheroo
 
-# setup run / log directories
-mkdir /var/log/switcheroo
-chown -R switcheroo:switcheroo /var/log/switcheroo
+# setup log directory
+ln -s /opt/switcheroo/log /var/log/switcheroo
 
 # create the init.d script
 cp /opt/switcheroo/script/etc/init.d/switcheroo /etc/init.d/switcheroo
