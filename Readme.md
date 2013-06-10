@@ -21,7 +21,7 @@ First upload a Wheezy Armel image to your SD Card. Images can be found on the [r
 
 Next, turn your Pi on, plug in the ethernet cable and log into your pi using SSH, a serial cable or simply through a monitor. Then run
 
-`sudo bash < <(curl https://raw.github.com/camswords/puppet-pi/master/scripts/setup_all.sh)`
+`sudo bash < <(curl https://raw.github.com/camswords/puppet-pi/master/scripts/puppet/setup_all.sh)`
 
 Your Pi will reboot at the end (to resize the filesystem to the size of your SD card). On restart, puppet 2.7.18 and ruby 1.9.3 should be installed.
 
