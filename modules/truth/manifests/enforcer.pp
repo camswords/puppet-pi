@@ -4,4 +4,5 @@ class truth::enforcer {
 
 	include java
 	include puppet_agent
+	include gpio
 }
